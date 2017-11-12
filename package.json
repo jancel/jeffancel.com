@@ -1,7 +1,7 @@
 {
   "name": "jeffancel.com",
   "version": "1.0.0",
-  "description": "Jeff Ancel's Site",
+  "description": "Jeff Ancel\'s Site",
   "author": "Jeff Ancel <jancel@gmail.com>",
   "private": true,
   "scripts": {
