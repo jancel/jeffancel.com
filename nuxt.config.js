@@ -1,4 +1,15 @@
+const config = require('./.contentful.json')
+const nodeExternals = require('webpack-node-externals')
+
 module.exports = {
+  /*
+  ** ENV (contentul)
+  */
+  env: {
+    CTF_SPACE_ID: config.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
+    CTF_PERSON_ID: config.CTF_PERSON_ID
+  },
   /*
   ** Headers of the page
   */
@@ -10,7 +21,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Jeff Ancel\'s Site' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' }
     ]
   },
   /*
@@ -33,6 +45,55 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+
+      if (ctx.isServer) {
+        config.externals = [
+          nodeExternals({
+            // default value for `whitelist` is
+            // [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i]
+            whitelist: [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i, /^vue-fontawesome/]
+          })
+        ]
+      }
     }
-  }
+  },
+  /*
+  ** Additional modules https://github.com/nuxt-community/awesome-nuxt#modules
+  */
+  modules: [
+    'bootstrap-vue/nuxt'
+  ],
+  /*
+  ** CSS Configurations
+  */
+  css: [
+    '@/less/default/styles.less',
+    '@/less/theme-8/styles.less'
+  ],
+  /*
+  ** Font Awesome custom packs
+  */ 
+  fontAwesome: {
+    packs: [
+      {
+        package: '@fortawesome/fontawesome-free-brands',
+        icons: ['faGithub', 'faFontAwesome', 'faLinkedin', 'faTwitter', 'faGooglePlus', 'faGithubAlt', 'faSkype'],
+      },
+      {
+        package: '@fortawesome/fontawesome-free-solid',
+        icons: ['faDownload','faPaperPlane']
+      }
+    ]
+  },
 }
+
+// module.exports = {
+//   css: [
+//     // Load a node module directly (here it's a SASS file)
+//     'bulma',
+//     // CSS file in the project
+//     '@/assets/css/main.css',
+//     // SCSS file in the project
+//     '@/assets/css/main.scss'
+//   ]
+// }
