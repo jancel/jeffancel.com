@@ -2,8 +2,8 @@
   <header class="header">
     <div class="top-bar container-fluid">
         <div class="actions">
-            <a class="btn d-none d-md-inline-block" href="mailto:someone@example.com"><font-awesome-icon icon="paper-plane" /> Contact</a>
-            <a class="btn" href="#"><font-awesome-icon icon="download" /> Download My Resume</a>
+            <a class="btn d-none d-md-inline-block" href="mailto:jancel@gmail.com"><font-awesome-icon icon="paper-plane" /> Contact</a>
+            <!-- <a class="btn" href="#"><font-awesome-icon icon="download" /> Download My Resume</a> -->
         </div><!--//actions-->
         <ul class="social list-inline">
             <li class="list-inline-item"><a href="https://www.linkedin.com/in/jancel"><font-awesome-icon :icon="['fab', 'linkedin']" /></a></li>
@@ -17,7 +17,7 @@
         <div class="container text-center">
             <img class="profile-image" src="~/assets/images/profile.jpg" alt="">
             <h1 class="name mx-auto">Jeff Ancel</h1>
-            <div class="title">Sr. Manager | Full Stack Engineer</div>
+            <div class="title">Sr. Manager | Full Stack Engineer | Entrepreneur</div>
             <div class="profile">
                 <p>Entrepreneur minded professional with passion for problem solving. Engaging in discussions, whiteboard sessions and reflection to bring forward flexible, cloud-driven foundations that can be built upon. Having been a Principal Engineer building complete technical companies to a Sr. Manager building teams to help enterprises leap forward in capability, I find the sweet spot is somewhere in the middle. Thought Leadership is a primary goal; Open Source software is important to everything we do.</p>
             </div><!--//profile-->
@@ -34,7 +34,7 @@
         </div><!--//container-->
     </div><!--//contact-info-->
 
-    <div class="page-nav-space-holder d-none d-md-block">
+    <!-- <div class="page-nav-space-holder d-none d-md-block">
         <div id="page-nav-wrapper" class="page-nav-wrapper text-centerd">
             <div class="container">
                 <ul id="page-nav" class="nav page-nav list-inline">
@@ -44,10 +44,10 @@
                     <li class="nav-item"><a class="scrollto nav-link" href="#testimonials-section">Testimonials</a></li>
                     <li class="nav-item"><a class="scrollto nav-link" href="#portfolio-section">Portfolio</a></li>
                     <li class="nav-item"><a class="scrollto nav-link" href="#contact-section">Contact</a></li>
-                </ul><!--//page-nav-->
+                </ul>
             </div>
-        </div><!--//page-nav-wrapper-->
-    </div>
+        </div>
+    </div> -->
   </header>
 </template>
 
