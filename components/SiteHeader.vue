@@ -2,15 +2,14 @@
   <header class="header">
     <div class="top-bar container-fluid">
         <div class="actions">
-            <a class="btn d-none d-md-inline-block" href="mailto:someone@example.com"><fa-icon pack="fas" name="paper-plane" /> Contact</a>
-            <a class="btn" href="#"><fa-icon pack="fas" name="download" /> Download My Resume</a>
+            <a class="btn d-none d-md-inline-block" href="mailto:someone@example.com"><font-awesome-icon icon="paper-plane" /> Contact</a>
+            <a class="btn" href="#"><font-awesome-icon icon="download" /> Download My Resume</a>
         </div><!--//actions-->
         <ul class="social list-inline">
-            <li class="list-inline-item"><a href="#"><fa-icon pack="fab" name="linkedin" /></a></li>
-            <li class="list-inline-item"><a href="#"><fa-icon pack="fab" name="twitter" /></a></li>
-            <li class="list-inline-item"><a href="#"><fa-icon pack="fab" name="google-plus" /></a></li>
-            <li class="list-inline-item"><a href="#"><fa-icon pack="fab" name="github-alt" /></a></li>
-            <li class="list-inline-item"><a href="#"><fa-icon pack="fab" name="skype" /></a></li>
+            <li class="list-inline-item"><a href="https://www.linkedin.com/in/jancel"><font-awesome-icon :icon="['fab', 'linkedin']" /></a></li>
+            <li class="list-inline-item"><a href="https://twitter.com/jancel/"><font-awesome-icon :icon="['fab', 'twitter']" /></a></li>
+            <li class="list-inline-item"><a href="https://github.com/jancel"><font-awesome-icon :icon="['fab', 'github-alt']" /></a></li>
+            <li class="list-inline-item"><a href="skype:Jeff.Ancel?userinfo"><font-awesome-icon :icon="['fab', 'skype']" /></a></li>
         </ul><!--//social-->
     </div><!--//top-bar-->
 
@@ -28,9 +27,9 @@
     <div class="contact-info">
         <div class="container text-center">
             <ul class="list-inline">
-                <li class="email list-inline-item"><i class="fa fa-envelope"></i><a href="mailto:jancel@gmail.com">jancel@gmail.com</a></li>
-                <li class="list-inline-item"><i class="fa fa-phone"></i> <a href="tel: 3147038829">(314) 703-8829</a></li>
-                <li class="website list-inline-item"><i class="fa fa-globe"></i><a href="http://jancel.net" target="_blank">jancel.net (blog)</a></li>
+                <li class="email list-inline-item"><a href="mailto:jancel@gmail.com"><font-awesome-icon icon="envelope" /> jancel@gmail.com</a></li>
+                <li class="list-inline-item"><a href="tel: 3147038829"><font-awesome-icon icon="phone" /> (314) 703-8829</a></li>
+                <li class="website list-inline-item"><a href="http://jancel.net" target="_blank"><font-awesome-icon icon="globe" /> jancel.net (blog)</a></li>
             </ul>
         </div><!--//container-->
     </div><!--//contact-info-->
@@ -54,10 +53,20 @@
 
 <script>
   import {createClient} from '~/plugins/contentful.js'
+  import fontawesome from '@fortawesome/fontawesome'
+  import brands from '@fortawesome/fontawesome-free-brands'
+  import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+  import { faPaperPlane, faDownload, faEnvelope, faPhone, faGlobe } from '@fortawesome/fontawesome-free-solid'
+
+  fontawesome.library.add(brands, faPaperPlane, faDownload, faEnvelope, faPhone, faGlobe)
 
   const client = createClient()
 
   export default {
+
+    components: {
+      FontAwesomeIcon
+    },
     // data () {
     //   return { head: 'hello world' }
     // },
