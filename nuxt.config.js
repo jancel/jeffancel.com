@@ -38,6 +38,9 @@ module.exports = {
     ** Run ESLint on save
     */
     extend (config, ctx) {
+      const fileLoader = config.module.rules.find((rule) => rule.loader === 'url-loader')
+      console.log(fileLoader)
+
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
