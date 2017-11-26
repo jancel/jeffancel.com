@@ -61,6 +61,13 @@ module.exports = {
     {src: 'roboto-fontface', lang: 'scss'},
     {src: '@/less/theme-8/styles.less', lang: 'less'}
   ],
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ['script', 'style', 'font'].includes(type)
+      }
+    }
+  },
 }
 
 // module.exports = {
