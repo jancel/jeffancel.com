@@ -1,6 +1,5 @@
 <template>
   <header class="header">
-    <span>{{ head }}</span>
     <div class="top-bar container-fluid">
         <div class="actions">
             <a class="btn d-none d-md-inline-block" href="mailto:someone@example.com"><fa-icon pack="fas" name="paper-plane" /> Contact</a>
@@ -59,9 +58,9 @@
   const client = createClient()
 
   export default {
-    data () {
-      return { head: 'hello world' }
-    },
+    // data () {
+    //   return { head: 'hello world' }
+    // },
     // `env` is available in the context object
     asyncData ({env}) {
       return Promise.all([

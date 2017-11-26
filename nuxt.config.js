@@ -45,23 +45,13 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-
-      if (ctx.isServer) {
-        config.externals = [
-          nodeExternals({
-            // default value for `whitelist` is
-            // [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i]
-            whitelist: [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i, /^vue-fontawesome/]
-          })
-        ]
-      }
     }
   },
   /*
   ** Additional modules https://github.com/nuxt-community/awesome-nuxt#modules
   */
   modules: [
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
   ],
   /*
   ** CSS Configurations
@@ -70,21 +60,6 @@ module.exports = {
     '@/less/default/styles.less',
     '@/less/theme-8/styles.less'
   ],
-  /*
-  ** Font Awesome custom packs
-  */ 
-  fontAwesome: {
-    packs: [
-      {
-        package: '@fortawesome/fontawesome-free-brands',
-        icons: ['faGithub', 'faFontAwesome', 'faLinkedin', 'faTwitter', 'faGooglePlus', 'faGithubAlt', 'faSkype'],
-      },
-      {
-        package: '@fortawesome/fontawesome-free-solid',
-        icons: ['faDownload','faPaperPlane']
-      }
-    ]
-  },
 }
 
 // module.exports = {

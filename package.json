@@ -20,8 +20,7 @@
     "bootstrap": "4.0.0-beta.2",
     "bootstrap-vue": "^1.0.2",
     "contentful": "^5.0.5",
-    "nuxt": "^1.0.0-rc11",
-    "qonfucius-nuxt-fontawesome": "0.0.1"
+    "nuxt": "^1.0.0-rc11"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
