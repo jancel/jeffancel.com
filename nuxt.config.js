@@ -57,7 +57,6 @@ module.exports = {
   ** CSS Configurations
   */
   css: [
-    '@/less/default/styles.less',
     '@/less/theme-8/styles.less'
   ],
 }
