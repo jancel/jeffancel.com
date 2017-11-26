@@ -22,7 +22,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' }
+      // { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' }
     ]
   },
   /*
@@ -33,6 +33,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    extractCSS: true,
     /*
     ** Run ESLint on save
     */
@@ -57,7 +58,8 @@ module.exports = {
   ** CSS Configurations
   */
   css: [
-    '@/less/theme-8/styles.less'
+    {src: 'roboto-fontface', lang: 'scss'},
+    {src: '@/less/theme-8/styles.less', lang: 'less'}
   ],
 }
 
