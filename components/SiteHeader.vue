@@ -6,10 +6,9 @@
             <!-- <a class="btn" href="#"><font-awesome-icon icon="download" /> Download My Resume</a> -->
         </div><!--//actions-->
         <ul class="social list-inline">
-            <li class="list-inline-item"><a href="https://www.linkedin.com/in/jancel"><font-awesome-icon :icon="['fab', 'linkedin']" /></a></li>
-            <li class="list-inline-item"><a href="https://twitter.com/jancel/"><font-awesome-icon :icon="['fab', 'twitter']" /></a></li>
-            <li class="list-inline-item"><a href="https://github.com/jancel"><font-awesome-icon :icon="['fab', 'github-alt']" /></a></li>
-            <li class="list-inline-item"><a href="skype:Jeff.Ancel?userinfo"><font-awesome-icon :icon="['fab', 'skype']" /></a></li>
+          <li v-for="socialIcon in socialIcons" class="list-inline-item">
+            <SocialIcon :socialLink="socialIcon.fields.socialLink" :icon="socialIcon.fields.faName" />
+          </li>
         </ul><!--//social-->
     </div><!--//top-bar-->
 
@@ -52,45 +51,83 @@
 </template>
 
 <script>
-  import {createClient} from '~/plugins/contentful.js'
   import fontawesome from '@fortawesome/fontawesome'
   import brands from '@fortawesome/fontawesome-free-brands'
   import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
   import { faPaperPlane, faDownload, faEnvelope, faPhone, faGlobe } from '@fortawesome/fontawesome-free-solid'
+  import SocialIcon from '~/components/SocialIcon.vue'
 
   fontawesome.library.add(brands, faPaperPlane, faDownload, faEnvelope, faPhone, faGlobe)
 
-  const client = createClient()
-
   export default {
-
+    props: ['socialIcons'],
     components: {
-      FontAwesomeIcon
-    },
-    // data () {
-    //   return { head: 'hello world' }
-    // },
-    // `env` is available in the context object
-    asyncData ({env}) {
-      return Promise.all([
-        // fetch the owner of the blog
-        client.getEntries({
-          'sys.id': env.CTF_PERSON_ID
-        }),
-        // fetch all social icons sorted by creation date
-        client.getEntries({
-          'content_type': env.CTF_SOCIAL_ICON_TYPE_ID,
-          order: '-sys.createdAt'
-        })
-      ]).then(([entries, socialIcons]) => {
-        // return data that should be available
-        // in the template
-        return {
-          person: entries.items[0],
-          socialIcons: socialIcons.items
-        }
-      }).catch(console.error)
+      FontAwesomeIcon,
+      SocialIcon
     }
+    // data () {
+    //   return { person: {},
+    //     socialIcons:
+    //     [{
+    //       'sys': {
+    //         'space': {
+    //           'sys': {
+    //             'type': 'Link',
+    //             'linkType': 'Space',
+    //             'id': 'fvabrd2mg82q'
+    //           }
+    //         },
+    //         'id': '32dMxVtrbOAuy0Y86EWyqk',
+    //         'type': 'Entry',
+    //         'createdAt': '2017-11-20T03:28:20.391Z',
+    //         'updatedAt': '2017-11-20T03:28:20.391Z',
+    //         'revision': 1,
+    //         'contentType': {
+    //           'sys': {
+    //             'type': 'Link',
+    //             'linkType': 'ContentType',
+    //             'id': 'socialIcons'
+    //           }
+    //         },
+    //         'locale': 'en-US'
+    //       },
+    //       'fields': {
+    //         'faName': 'linkedin',
+    //         'faPack': 'fab',
+    //         'socialLink': 'https://www.linkedin.com/in/jancel/'
+    //       }
+    //     },
+    //     {
+    //       'sys': {
+    //         'space': {
+    //           'sys': {
+    //             'type': 'Link',
+    //             'linkType': 'Space',
+    //             'id': 'fvabrd2mg82q'
+    //           }
+    //         },
+    //         'id': '2VWDsSUf166iYwe4kIA68O',
+    //         'type': 'Entry',
+    //         'createdAt': '2017-11-20T03:29:26.475Z',
+    //         'updatedAt': '2017-11-20T03:29:26.475Z',
+    //         'revision': 1,
+    //         'contentType': {
+    //           'sys': {
+    //             'type': 'Link',
+    //             'linkType': 'ContentType',
+    //             'id': 'socialIcons'
+    //           }
+    //         },
+    //         'locale': 'en-US'
+    //       },
+    //       'fields': {
+    //         'faName': 'twitter',
+    //         'faPack': 'fab',
+    //         'socialLink': 'https://twitter.com/jancel'
+    //       }
+    //     }]
+    //   }
+    // }
   }
 </script>
 

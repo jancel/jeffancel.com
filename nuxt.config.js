@@ -1,5 +1,5 @@
 const config = require('./.contentful.json')
-const nodeExternals = require('webpack-node-externals')
+// const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   /*
@@ -21,7 +21,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Jeff Ancel\'s Site' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       // { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' }
     ]
   },
@@ -55,7 +55,7 @@ module.exports = {
   ** Additional modules https://github.com/nuxt-community/awesome-nuxt#modules
   */
   modules: [
-    'bootstrap-vue/nuxt',
+    'bootstrap-vue/nuxt'
   ],
   /*
   ** CSS Configurations
@@ -70,7 +70,7 @@ module.exports = {
         return ['script', 'style', 'font'].includes(type)
       }
     }
-  },
+  }
 }
 
 // module.exports = {

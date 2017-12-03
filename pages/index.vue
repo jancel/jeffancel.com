@@ -1,15 +1,18 @@
 <template>
   <div>
-    <site-header />
+    <site-header :socialIcons="socialIcons" />
     <!-- <home-page /> -->
   </div>
 </template>
 
 <script>
+import {createClient} from '~/plugins/contentful.js'
 import Logo from '~/components/Logo.vue'
 import SiteHeader from '~/components/SiteHeader.vue'
 import HomePage from '~/components/HomePage.vue'
 import $ from 'jquery'
+
+const client = createClient()
 
 export default {
   mounted: () => {
@@ -24,7 +27,30 @@ export default {
     Logo,
     SiteHeader,
     HomePage
+  },
+  // `env` is available in the context object
+  asyncData (context) {
+    const env = context.env
+    return Promise.all([
+      // fetch the owner
+      client.getEntries({
+        'sys.id': env.CTF_PERSON_ID
+      }),
+      // fetch all social icons sorted by creation date
+      client.getEntries({
+        'content_type': env.CTF_SOCIAL_ICON_TYPE_ID,
+        order: 'sys.createdAt'
+      })
+    ]).then(([entries, socialIcons]) => {
+      // return data that should be available
+      // in the template
+      return {
+        person: entries.items[0],
+        socialIcons: socialIcons.items
+      }
+    }).catch(console.error)
   }
+
 }
 </script>
 
