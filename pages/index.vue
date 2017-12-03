@@ -1,6 +1,6 @@
 <template>
   <div>
-    <site-header :socialIcons="socialIcons" />
+    <site-header :socialIcons="socialIcons" :siteLogo="logo" />
     <!-- <home-page /> -->
   </div>
 </template>
@@ -16,6 +16,7 @@ const client = createClient()
 
 export default {
   mounted: () => {
+    window.client = client
     // $('body').scrollspy({target: '#page-nav-wrapper', offset: 100})
     $('.scrollto').on('click', function (e) {
       var target = this.hash
@@ -33,19 +34,18 @@ export default {
     const env = context.env
     return Promise.all([
       // fetch the owner
-      client.getEntries({
-        'sys.id': env.CTF_PERSON_ID
-      }),
+      client.getAssets(),
       // fetch all social icons sorted by creation date
       client.getEntries({
         'content_type': env.CTF_SOCIAL_ICON_TYPE_ID,
         order: 'sys.createdAt'
       })
-    ]).then(([entries, socialIcons]) => {
-      // return data that should be available
-      // in the template
+    ]).then(([assets, socialIcons]) => {
+      // return site logo (last contentful Logo upload)
+      let siteLogo = assets.items.filter(logo => logo.fields.title === 'Logo').slice(-1)[0].fields
+
       return {
-        person: entries.items[0],
+        logo: siteLogo,
         socialIcons: socialIcons.items
       }
     }).catch(console.error)

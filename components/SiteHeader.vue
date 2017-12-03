@@ -14,7 +14,7 @@
 
     <div class="intro">
         <div class="container text-center">
-            <img class="profile-image" src="~/assets/images/profile.jpg" alt="">
+            <img class="profile-image" :src="siteLogo.file.url" alt="Logo">
             <h1 class="name mx-auto">Jeff Ancel</h1>
             <div class="title">Sr. Manager | Full Stack Engineer | Entrepreneur</div>
             <div class="profile">
@@ -33,7 +33,7 @@
         </div><!--//container-->
     </div><!--//contact-info-->
 
-    <!-- <div class="page-nav-space-holder d-none d-md-block">
+    <div class="page-nav-space-holder d-none d-md-block">
         <div id="page-nav-wrapper" class="page-nav-wrapper text-centerd">
             <div class="container">
                 <ul id="page-nav" class="nav page-nav list-inline">
@@ -46,7 +46,7 @@
                 </ul>
             </div>
         </div>
-    </div> -->
+    </div>
   </header>
 </template>
 
@@ -60,7 +60,7 @@
   fontawesome.library.add(brands, faPaperPlane, faDownload, faEnvelope, faPhone, faGlobe)
 
   export default {
-    props: ['socialIcons'],
+    props: ['socialIcons', 'siteLogo'],
     components: {
       FontAwesomeIcon,
       SocialIcon
