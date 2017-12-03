@@ -65,69 +65,6 @@
       FontAwesomeIcon,
       SocialIcon
     }
-    // data () {
-    //   return { person: {},
-    //     socialIcons:
-    //     [{
-    //       'sys': {
-    //         'space': {
-    //           'sys': {
-    //             'type': 'Link',
-    //             'linkType': 'Space',
-    //             'id': 'fvabrd2mg82q'
-    //           }
-    //         },
-    //         'id': '32dMxVtrbOAuy0Y86EWyqk',
-    //         'type': 'Entry',
-    //         'createdAt': '2017-11-20T03:28:20.391Z',
-    //         'updatedAt': '2017-11-20T03:28:20.391Z',
-    //         'revision': 1,
-    //         'contentType': {
-    //           'sys': {
-    //             'type': 'Link',
-    //             'linkType': 'ContentType',
-    //             'id': 'socialIcons'
-    //           }
-    //         },
-    //         'locale': 'en-US'
-    //       },
-    //       'fields': {
-    //         'faName': 'linkedin',
-    //         'faPack': 'fab',
-    //         'socialLink': 'https://www.linkedin.com/in/jancel/'
-    //       }
-    //     },
-    //     {
-    //       'sys': {
-    //         'space': {
-    //           'sys': {
-    //             'type': 'Link',
-    //             'linkType': 'Space',
-    //             'id': 'fvabrd2mg82q'
-    //           }
-    //         },
-    //         'id': '2VWDsSUf166iYwe4kIA68O',
-    //         'type': 'Entry',
-    //         'createdAt': '2017-11-20T03:29:26.475Z',
-    //         'updatedAt': '2017-11-20T03:29:26.475Z',
-    //         'revision': 1,
-    //         'contentType': {
-    //           'sys': {
-    //             'type': 'Link',
-    //             'linkType': 'ContentType',
-    //             'id': 'socialIcons'
-    //           }
-    //         },
-    //         'locale': 'en-US'
-    //       },
-    //       'fields': {
-    //         'faName': 'twitter',
-    //         'faPack': 'fab',
-    //         'socialLink': 'https://twitter.com/jancel'
-    //       }
-    //     }]
-    //   }
-    // }
   }
 </script>
 
