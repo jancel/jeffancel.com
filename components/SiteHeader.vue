@@ -52,12 +52,11 @@
 
 <script>
   import fontawesome from '@fortawesome/fontawesome'
-  import brands from '@fortawesome/fontawesome-free-brands'
   import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
   import { faPaperPlane, faDownload, faEnvelope, faPhone, faGlobe } from '@fortawesome/fontawesome-free-solid'
   import SocialIcon from '~/components/SocialIcon.vue'
 
-  fontawesome.library.add(brands, faPaperPlane, faDownload, faEnvelope, faPhone, faGlobe)
+  fontawesome.library.add(faPaperPlane, faDownload, faEnvelope, faPhone, faGlobe)
 
   export default {
     props: ['socialIcons', 'siteLogo'],
