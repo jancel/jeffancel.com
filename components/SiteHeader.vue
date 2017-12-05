@@ -33,7 +33,7 @@
         </div><!--//container-->
     </div><!--//contact-info-->
 
-    <div class="page-nav-space-holder d-none d-md-block">
+    <!-- <div class="page-nav-space-holder d-none d-md-block">
         <div id="page-nav-wrapper" class="page-nav-wrapper text-centerd">
             <div class="container">
                 <ul id="page-nav" class="nav page-nav list-inline">
@@ -46,7 +46,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> -->
   </header>
 </template>
 
