@@ -15,10 +15,10 @@
     <div class="intro">
         <div class="container text-center">
             <img class="profile-image" :src="siteLogo.file.url" alt="Logo">
-            <h1 class="name mx-auto">Jeff Ancel</h1>
-            <div class="title">Sr. Manager | Full Stack Engineer | Entrepreneur</div>
+            <h1 class="name mx-auto">{{ siteInfo.name }}</h1>
+            <div class="title">{{ siteInfo.title }}</div>
             <div class="profile">
-                <p>Entrepreneur minded professional with passion for problem solving. Engaging in discussions, whiteboard sessions and reflection to bring forward flexible, cloud-driven foundations that can be built upon. Having been a Principal Engineer building complete technical companies to a Sr. Manager building teams to help enterprises leap forward in capability, I find the sweet spot is somewhere in the middle. Thought Leadership is a primary goal; Open Source software is important to everything we do.</p>
+                <vue-markdown>{{ siteInfo.introduction }}</vue-markdown>
             </div><!--//profile-->
         </div><!--//container-->
     </div><!--//intro-->
@@ -26,9 +26,9 @@
     <div class="contact-info">
         <div class="container text-center">
             <ul class="list-inline">
-                <li class="email list-inline-item"><a href="mailto:jancel@gmail.com"><font-awesome-icon icon="envelope" /> jancel@gmail.com</a></li>
-                <li class="list-inline-item"><a href="tel: 3147038829"><font-awesome-icon icon="phone" /> (314) 703-8829</a></li>
-                <li class="website list-inline-item"><a href="http://jancel.net" target="_blank"><font-awesome-icon icon="globe" /> jancel.net (blog)</a></li>
+                <li v-for="contactInfo in contactInfos" class="list-inline-item">
+                  <contact-link :contactInfo="contactInfo.fields" />
+                </li>
             </ul>
         </div><!--//container-->
     </div><!--//contact-info-->
@@ -53,16 +53,20 @@
 <script>
   import fontawesome from '@fortawesome/fontawesome'
   import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
-  import { faPaperPlane, faDownload, faEnvelope, faPhone, faGlobe } from '@fortawesome/fontawesome-free-solid'
+  import { faPaperPlane } from '@fortawesome/fontawesome-free-solid'
   import SocialIcon from '~/components/SocialIcon.vue'
+  import ContactLink from '~/components/ContactLink.vue'
+  import VueMarkdown from 'vue-markdown'
 
-  fontawesome.library.add(faPaperPlane, faDownload, faEnvelope, faPhone, faGlobe)
+  fontawesome.library.add(faPaperPlane)
 
   export default {
-    props: ['socialIcons', 'siteLogo'],
+    props: ['socialIcons', 'siteLogo', 'siteInfo', 'contactInfos'],
     components: {
       FontAwesomeIcon,
-      SocialIcon
+      SocialIcon,
+      VueMarkdown,
+      ContactLink
     }
   }
 </script>
