@@ -22,7 +22,7 @@
     "contentful": "^5.0.5",
     "jquery": "^3.2.1",
     "jquery.scrollto": "^2.1.2",
-    "nuxt": "^1.0.0-rc11",
+    "nuxt": "^3.0.0",
     "roboto-fontface": "^0.8.0",
     "vue-markdown": "^2.2.4"
   },
